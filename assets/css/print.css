@@ -1,11 +1,19 @@
-/* 📄 Print Stylesheet — Currículo Graciliano Tolentino */
+/* ============================================================================
+📄 print.css v3 — Currículo de Graciliano Tolentino
+🖨️ Alta legibilidade • Estética editorial • A4 otimizado • Hierarquia preservada
+============================================================================= */
+
 @media print {
   :root {
-    --cor-principal: #1A1A1A;
-    --cor-secundaria: #444;
-    --fonte-principal: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    --print-fg: #1A1A1A;
+    --print-muted: #444444;
+    --print-font: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    --print-headline: 20pt;
+    --print-subhead: 16pt;
+    --print-subsub: 13pt;
   }
 
+  /* 🔧 Ajuste global de cor e comportamento */
   * {
     color-adjust: exact;
     -webkit-print-color-adjust: exact;
@@ -13,73 +21,94 @@
   }
 
   body {
-    font-family: var(--fonte-principal);
+    font-family: var(--print-font);
     font-size: 11pt;
     line-height: 1.6;
-    color: var(--cor-principal);
-    background: #fff;
+    color: var(--print-fg);
+    background: #ffffff;
     margin: 0;
     padding: 2cm;
-  }
-
-  header,
-  footer,
-  .botao-destaque,
-  .cta-pdf,
-  nav,
-  noscript,
-  .contato-rapido {
-    display: none !important;
-  }
-
-  h1, h2, h3 {
-    color: var(--cor-principal);
-    margin-bottom: 0.5em;
-  }
-
-  h1 {
-    font-size: 20pt;
-    border-bottom: 2px solid var(--cor-principal);
-    padding-bottom: 0.3em;
-    margin-top: 0;
-  }
-
-  h2 {
-    font-size: 16pt;
-    margin-top: 1.5em;
-  }
-
-  h3 {
-    font-size: 13pt;
-    margin-top: 1em;
-  }
-
-  a {
-    color: var(--cor-secundaria);
-    text-decoration: none;
-  }
-
-  ul, dl {
-    margin: 0;
-    padding-left: 1.2em;
-  }
-
-  li, dd {
-    margin-bottom: 0.5em;
-  }
-
-  .container {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .secao {
-    page-break-inside: avoid;
-    margin-bottom: 2em;
   }
 
   @page {
     size: A4 portrait;
     margin: 2cm;
   }
+
+  /* 🧼 Exclusão de elementos visuais não imprimíveis */
+  header,
+  footer,
+  nav,
+  .botao-destaque,
+  .cta-pdf,
+  .botoes-contato,
+  .voltar-topo,
+  .contato-rapido,
+  noscript {
+    display: none !important;
+  }
+
+  /* 🧱 Tipografia por nível */
+  h1, h2, h3 {
+    color: var(--print-fg);
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    break-after: avoid;
+  }
+
+  h1 {
+    font-size: var(--print-headline);
+    font-weight: 800;
+    margin-top: 0;
+    border-bottom: 2px solid var(--print-fg);
+    padding-bottom: 0.3em;
+  }
+
+  h2 {
+    font-size: var(--print-subhead);
+    font-weight: 700;
+    margin-top: 2em;
+  }
+
+  h3 {
+    font-size: var(--print-subsub);
+    font-weight: 600;
+    margin-top: 1em;
+  }
+
+  /* 🔗 Links elegantes (sem http) */
+  a {
+    color: var(--print-muted);
+    text-decoration: none;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85rem;
+    color: var(--print-muted);
+  }
+
+  /* 📄 Listas */
+  ul,
+  dl {
+    margin: 0;
+    padding-left: 1.25em;
+  }
+
+  li,
+  dd {
+    margin-bottom: 0.5em;
+  }
+
+  /* 📦 Containers e seções */
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .secao {
+    margin-bottom: 2em;
+    page-break-inside: avoid;
+  }
 }
+

@@ -1,50 +1,53 @@
 /* ============================================================================
-📁 footer.css v4 — Rodapé Profissional de Graciliano Tolentino
-🌐 Modular • Acessível • Responsivo • Temático • Animado • SEO-Ready
+📁 footer.css v5 — Graciliano Tolentino
+🌐 Modular • Acessível • Responsivo • Identitário • Semântico
 ============================================================================= */
 
-:root,
-[data-theme="escuro"] {
-  --cor-fundo-rodape: #0d0d0d;
-  --cor-texto-rodape: #ffffff;
-  --cor-clara: #9e9e9e;
-  --cor-destaque: #00c853;
-  --fonte-base: 'Inter', sans-serif;
-  --largura-maxima: 1200px;
-  --espaco: 1rem;
+/* 🎨 Tokens e temas */
+:root {
+  --footer-bg:        #f4f6f8;
+  --footer-fg:        #2e2e2e;
+  --footer-muted:     #6c757d;
+  --footer-accent:    #0077b6;
+  --footer-contrast:  #ffffff;
+
+  --footer-font:      'Inter', sans-serif;
+  --footer-max-width: 1200px;
+  --footer-space:     1.5rem;
 }
 
-[data-theme="claro"],
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --cor-fundo-rodape: #f5f5f5;
-    --cor-texto-rodape: #111111;
-    --cor-clara: #555555;
-    --cor-destaque: #007e33;
+    --footer-bg:       #0d0d0d;
+    --footer-fg:       #f4f4f4;
+    --footer-muted:    #b0b0b0;
+    --footer-accent:   #00c853;
+    --footer-contrast: #0d0d0d;
   }
 }
 
-/* 🔲 Estrutura base do rodapé */
+/* 🧱 Estrutura base */
 .rodape-site {
-  background-color: var(--cor-fundo-rodape);
-  color: var(--cor-texto-rodape);
-  font-family: var(--fonte-base);
-  padding: 2rem var(--espaco);
+  background-color: var(--footer-bg);
+  color: var(--footer-fg);
+  font-family: var(--footer-font);
+  padding: 2rem var(--footer-space);
   font-size: clamp(0.875rem, 1vw, 1rem);
-  border-top: 3px solid var(--cor-destaque);
+  border-top: 3px solid var(--footer-accent);
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.05);
 }
 
 .rodape-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
   gap: 2rem;
-  max-width: var(--largura-maxima);
-  margin: 0 auto;
+  max-width: var(--footer-max-width);
+  margin-inline: auto;
+  align-items: flex-start;
 }
 
-/* 🔗 Bloco de links institucionais */
+/* 🔗 Links institucionais */
 .rodape-links ul {
   list-style: none;
   padding: 0;
@@ -55,18 +58,18 @@
 }
 
 .rodape-links a {
-  color: var(--cor-texto-rodape);
+  color: var(--footer-fg);
   text-decoration: none;
   transition: color 0.25s ease;
 }
 
 .rodape-links a:hover,
 .rodape-links a:focus {
-  color: var(--cor-destaque);
+  color: var(--footer-accent);
   outline: none;
 }
 
-/* 🌐 Redes sociais com animação sutil */
+/* 🌐 Redes sociais com animação */
 .rodape-redes {
   display: flex;
   gap: 1rem;
@@ -77,6 +80,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.5rem;
   transition: transform 0.25s ease;
 }
 
@@ -85,7 +89,7 @@
 }
 
 .rede-social:focus {
-  outline: 2px solid var(--cor-destaque);
+  outline: 2px solid var(--footer-accent);
   outline-offset: 3px;
   border-radius: 4px;
   animation: pulse 0.3s ease-in-out;
@@ -97,76 +101,76 @@
   100% { transform: scale(1); }
 }
 
-/* 🌍 Idiomas com destaque de ativo e símbolo ✓ */
+/* 🌍 Idiomas com estado ativo */
 .rodape-idiomas {
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  justify-content: flex-start;
 }
 
 .idioma-link {
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
   transition: background-color 0.2s, outline 0.2s;
   position: relative;
+  color: var(--footer-fg);
 }
 
 .idioma-link:hover,
 .idioma-link:focus {
-  background-color: rgba(0, 200, 83, 0.1);
-  outline: 2px solid var(--cor-destaque);
+  background-color: rgba(0, 119, 182, 0.1);
+  outline: 2px solid var(--footer-accent);
   outline-offset: 2px;
 }
 
 .idioma-link.ativo {
-  outline: 2px solid var(--cor-destaque);
+  outline: 2px solid var(--footer-accent);
   font-weight: bold;
-  background-color: rgba(0, 200, 83, 0.1);
+  background-color: rgba(0, 119, 182, 0.1);
 }
 
 .idioma-link.ativo::after {
   content: "✓";
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   position: absolute;
   top: -0.3rem;
   right: -0.4rem;
-  color: var(--cor-destaque);
+  color: var(--footer-accent);
 }
 
-/* ⬆️ Botão voltar ao topo */
+/* ⬆️ Botão "Voltar ao Topo" */
 .voltar-topo {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .botao-topo {
   display: inline-block;
   background-color: transparent;
-  color: var(--cor-destaque);
-  text-decoration: none;
+  color: var(--footer-accent);
   font-weight: 600;
-  border: 2px solid var(--cor-destaque);
+  text-decoration: none;
+  border: 2px solid var(--footer-accent);
   border-radius: 6px;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   transition: all 0.3s ease;
 }
 
 .botao-topo:hover,
 .botao-topo:focus {
-  background-color: var(--cor-destaque);
-  color: var(--cor-fundo-rodape);
+  background-color: var(--footer-accent);
+  color: var(--footer-contrast);
   outline: none;
 }
 
 /* 🧾 Créditos institucionais */
 .rodape-creditos {
-  text-align: left;
-  font-size: clamp(0.75rem, 0.9rem, 1rem);
-  color: var(--cor-clara);
+  font-size: 0.85rem;
+  color: var(--footer-muted);
   margin-top: 2rem;
   line-height: 1.6;
+  max-width: 640px;
 }
 
 /* 📱 Responsividade total */
@@ -192,5 +196,6 @@
 
   .rodape-creditos {
     text-align: center;
+    margin-inline: auto;
   }
 }

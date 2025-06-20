@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="Content-Language" content="pt-BR" />
+  <title>Redirecionando por Idioma… • Graciliano Tolentino</title>
+
+  <!-- 🌐 SEO Multilíngue e Canonical -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="Redirecionamento automático de idioma para o currículo multilíngue de Graciliano Tolentino." />
+  <link rel="canonical" href="https://gracilianotolentino.org/index-auto.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://gracilianotolentino.org/index.html" />
+  <link rel="alternate" hreflang="en" href="https://gracilianotolentino.org/index-en.html" />
+
+  <!-- 🎨 Estilos com transição, acessibilidade e modo escuro -->
+  <link rel="stylesheet" href="/assets/css/redirect.css" />
+
+  <!-- 🧠 Lógica JavaScript separada -->
+  <script src="/assets/js/redirect.js" defer></script>
+</head>
+
+<body style="opacity: 0; animation: fadeIn 0.4s ease-out forwards;">
+  <h1>Redirecionando…</h1>
+  <p aria-live="polite">Estamos detectando o melhor idioma para você.</p>
+
+  <p class="explicacao">
+    Caso o redirecionamento automático não funcione, selecione manualmente seu idioma preferido abaixo:
+  </p>
+
+  <div class="fallback" role="navigation" aria-label="Seletor manual de idioma">
+    <a href="/index.html" hreflang="pt-BR">🌎 Ver em Português</a>
+    <a href="/index-en.html" hreflang="en">🌍 View in English</a>
+  </div>
+
+  <button class="reset-button" onclick="localStorage.removeItem('preferredLanguage'); location.reload();" style="touch-action: manipulation;">
+    Redefinir idioma e tentar novamente
+  </button>
+
+  <noscript>
+    <div>
+      <strong>⚠️ JavaScript desativado:</strong>
+      <p>
+        O redirecionamento automático depende de JavaScript. Acesse manualmente seu idioma preferido:
+      </p>
+      <ul>
+        <li><a href="/index.html">Português</a></li>
+        <li><a href="/index-en.html">English</a></li>
+      </ul>
+    </div>
+  </noscript>
+</body>
+</html>
+

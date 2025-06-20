@@ -1,6 +1,6 @@
 /* ============================================================================
-📁 carrossel-curriculo.css — Currículo Graciliano Tolentino
-🎠 Acessível • Elegante • Responsivo • Fullscreen Inteligente
+📁 carrossel-curriculo.css v2 — Graciliano Tolentino
+🎠 Acessível • Elegante • Responsivo • Fullscreen Imersivo
 ============================================================================= */
 
 .carrossel-curriculo {
@@ -11,43 +11,55 @@
   scroll-behavior: smooth;
   position: relative;
   padding: var(--space-sm);
-  border-radius: var(--radius-base);
+  border-radius: var(--radius-md);
+  background-color: var(--color-contrast);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
 }
 
 .carrossel-curriculo img {
   scroll-snap-align: center;
   max-height: 240px;
   max-width: 100%;
-  border-radius: var(--radius-base);
   object-fit: cover;
-  transition: transform 0.3s ease;
-  outline: none;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
 }
 
 .carrossel-curriculo img.ativo {
   transform: scale(1.02);
+  opacity: 1;
+  filter: none;
 }
 
 .carrossel-curriculo img.inativo {
   opacity: 0.5;
-  filter: grayscale(0.2);
+  filter: grayscale(10%);
 }
 
-/* 🔘 Botões de controle */
+/* 🔘 Botões de controle lateral */
 .carrossel-controle {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--color-bg);
+  background-color: var(--color-contrast);
   color: var(--color-accent);
   font-size: 2rem;
   border: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.75rem;
   border-radius: var(--radius-base);
   cursor: pointer;
-  transition: background-color 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   z-index: 10;
+  transition: background-color var(--transition-soft), color var(--transition-soft);
+}
+
+.carrossel-controle:hover,
+.carrossel-controle:focus {
+  background-color: var(--color-accent);
+  color: var(--color-contrast);
+  outline: none;
 }
 
 .carrossel-prev {
@@ -58,19 +70,13 @@
   right: var(--space-sm);
 }
 
-.carrossel-controle:hover,
-.carrossel-controle:focus {
-  background-color: var(--color-contrast);
-  outline: none;
-}
-
-/* 🌌 Fullscreen */
+/* 🌌 Modo tela cheia com imersão visual */
 .carrossel-curriculo.fullscreen {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.96);
   z-index: 9999;
   padding: var(--space-lg);
+  background-color: rgba(0, 0, 0, 0.96);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +85,7 @@
   gap: var(--gap-lg);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-soft);
 }
 
 .carrossel-curriculo.fullscreen.ativo {
@@ -92,23 +98,25 @@
   max-width: 90vw;
   border-radius: var(--radius-lg);
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-soft);
 }
 
+/* 🔳 Botão de fechar o fullscreen */
 #fecharFullscreen {
   position: fixed;
   top: var(--space-sm);
   right: var(--space-sm);
-  background: var(--color-accent);
-  color: var(--color-bg);
+  background-color: var(--color-accent);
+  color: var(--color-contrast);
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: var(--radius-base);
-  font-weight: bold;
+  border-radius: var(--radius-md);
+  font-weight: 600;
   font-size: 1rem;
   z-index: 10000;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color var(--transition-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 #fecharFullscreen:hover,
@@ -117,20 +125,25 @@
   outline: none;
 }
 
-/* 📱 Mobile */
+/* 📱 Estilo adaptado para dispositivos móveis */
 @media (max-width: 768px) {
   .carrossel-controle {
-    font-size: 1.5rem;
-    padding: 0.25rem 0.4rem;
+    font-size: 1.25rem;
+    padding: 0.4rem 0.6rem;
   }
 
   .carrossel-curriculo.fullscreen img {
     max-height: 60vh;
     max-width: 90vw;
   }
+
+  #fecharFullscreen {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+  }
 }
 
-/* 🔒 Acessibilidade (screen readers) */
+/* ♿ Suporte a leitores de tela */
 .sr-only {
   position: absolute !important;
   width: 1px;
@@ -138,7 +151,7 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }

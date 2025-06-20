@@ -1,63 +1,62 @@
 /* ============================================================================
-📁 base.css v5.1 — Graciliano Tolentino
-🧠 Perfeito • Modular • RTL • Cascade Layer • Animável • Global
+📁 base.css v6 — Graciliano Tolentino
+🎯 Tipografia refinada • Paleta leve • Design System Modular
 ============================================================================= */
 
 @layer base {
-  @property --color-accent {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: #00c853;
-  }
+  :root {
+    /* 🎨 Paleta de Cores Tech Elegante */
+    --color-bg:        #f4f6f8;
+    --color-fg:        #2e2e2e;
+    --color-soft:      #6c757d;
+    --color-accent:    #0077b6;
+    --color-hover:     #48cae4;
+    --color-contrast:  #ffffff;
+    --color-border:    #dce1e7;
 
-  :root,
-  [data-theme="dark"] {
-    --color-bg: #0d0d0d;
-    --color-fg: #ffffff;
-    --color-soft: #9e9e9e;
-    --color-accent: #00c853;
-    --color-contrast: #1a1a1a;
-    --color-hover: #00e676;
-
-    --font-body: 'Inter', sans-serif;
+    /* 🅰️ Tipografia moderna */
+    --font-primary: 'Manrope', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
     --font-base: 1rem;
-    --font-scale: clamp(0.875rem, 1.2vw, 1.125rem);
+    --font-scale: clamp(0.9rem, 1.1vw, 1.125rem);
+    --line-height: 1.7;
 
+    /* 📐 Espaçamentos e dimensões */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 2rem;
-    --gap-sm: 0.75rem;
+    --gap-md: 1.25rem;
     --gap-lg: 2.5rem;
 
     --radius-sm: 4px;
-    --radius-base: 6px;
+    --radius-md: 6px;
     --radius-lg: 12px;
 
-    --max-width: 1200px;
-
+    --max-width: 1024px;
     --transition-soft: 0.3s ease;
   }
 
-  [data-theme="light"],
-  @media (prefers-color-scheme: light) {
+  /* 🌗 Suporte a modo escuro (não padrão neste projeto) */
+  @media (prefers-color-scheme: dark) {
     :root {
-      --color-bg: #ffffff;
-      --color-fg: #111111;
-      --color-soft: #666666;
-      --color-accent: #007e33;
-      --color-contrast: #e0e0e0;
-      --color-hover: #00964b;
+      --color-bg: #0d0d0d;
+      --color-fg: #ffffff;
+      --color-soft: #9e9e9e;
+      --color-accent: #00c853;
+      --color-hover: #00e676;
+      --color-border: #1a1a1a;
     }
   }
 
+  /* 🔁 Transições gerais */
   :root {
     transition:
       background-color var(--transition-soft),
-      color var(--transition-soft),
-      --color-accent var(--transition-soft);
+      color var(--transition-soft);
   }
 
+  /* 🔄 Reset e normalização */
   *,
   *::before,
   *::after {
@@ -72,25 +71,25 @@
   }
 
   body {
-    font-family: var(--font-body);
+    font-family: var(--font-primary);
     background-color: var(--color-bg);
     color: var(--color-fg);
     font-size: var(--font-base);
-    line-height: 1.6;
+    line-height: var(--line-height);
     min-height: 100vh;
     transition: background-color var(--transition-soft), color var(--transition-soft);
   }
 }
 
 @layer layout {
-  /* 📦 Container centralizado */
+  /* 📦 Container centralizado e modular */
   .container {
     max-width: var(--max-width);
     margin-inline: auto;
     padding-inline: var(--space-sm);
   }
 
-  /* 🧱 Estrutura de seções verticais */
+  /* 📐 Seções verticais com respiro */
   .secao {
     margin-block: var(--space-lg);
   }
@@ -98,36 +97,31 @@
   .secao-titulo {
     font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 700;
+    border-left: 2px solid var(--color-accent);
+    padding-left: var(--space-sm);
     margin-bottom: var(--space-sm);
-    color: var(--color-accent);
-    text-align: center;
+    color: var(--color-fg);
   }
 
   .subtitulo {
     font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
     color: var(--color-soft);
-    text-align: center;
     margin-top: var(--space-xs);
   }
 
-  /* 🌐 RTL-ready para suporte internacional */
-  :root:dir(rtl) .secao-titulo,
-  :root:dir(rtl) .subtitulo {
-    text-align: right;
-  }
-
-  /* 📚 Tipografia refinada */
+  /* 🌍 Listas refinadas */
   ul,
   ol {
-    padding-left: 1.25rem;
+    padding-left: 1.5rem;
     margin-bottom: var(--space-sm);
   }
 
-  ul li,
-  ol li {
+  li {
     margin-bottom: 0.5rem;
   }
 
+  /* 🌐 Links */
   a {
     color: var(--color-accent);
     text-decoration: none;
@@ -142,47 +136,78 @@
 }
 
 @layer components {
-  /* 🎯 Botão institucional de destaque */
+  /* 🎯 Botão de destaque (primário) */
   .botao-destaque {
-    background-color: var(--color-contrast);
-    color: var(--color-fg);
-    padding: 0.6rem 1.25rem;
-    border: none;
-    border-radius: var(--radius-base);
+    background-color: var(--color-accent);
+    color: var(--color-contrast);
+    font-size: 1rem;
     font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: background-color var(--transition-soft), color var(--transition-soft);
+    transition: background-color var(--transition-soft), color var(--transition-soft), box-shadow var(--transition-soft);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   }
 
   .botao-destaque:hover,
   .botao-destaque:focus {
-    background-color: var(--color-accent);
+    background-color: var(--color-hover);
     color: var(--color-bg);
     outline: none;
   }
 
-  /* 📎 Botão secundário com borda (copiar, leve) */
+  /* 📎 Botões secundários (linha de contato rápido) */
   .botoes-contato button {
     font-size: 1rem;
     font-weight: 500;
     border: 2px solid var(--color-accent);
     background: transparent;
     color: var(--color-accent);
-    border-radius: var(--radius-base);
-    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.25rem;
     transition: all var(--transition-soft);
   }
 
   .botoes-contato button:hover,
   .botoes-contato button:focus {
     background-color: var(--color-accent);
-    color: var(--color-bg);
+    color: var(--color-contrast);
     outline: none;
+  }
+
+  /* 🧩 Cards de experiência */
+  .card-experiencia {
+    background-color: var(--color-contrast);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .card-experiencia h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--color-fg);
+  }
+
+  .card-experiencia .data {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-soft);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .card-experiencia p {
+    font-size: 1rem;
+    line-height: var(--line-height);
   }
 }
 
 @layer utils {
-  /* 🙈 Acessibilidade: ocultar visualmente sem remover do fluxo */
+  /* 🙈 Acessibilidade: ocultar visualmente */
   .visually-hidden {
     position: absolute !important;
     width: 1px;
@@ -206,10 +231,17 @@
 
   @media print {
     body {
-      background-color: #fff;
-      color: #000;
-      font-size: 12pt;
+      background-color: #ffffff !important;
+      color: #000000 !important;
+      font-family: 'Inter', sans-serif;
+      font-size: 11pt;
       line-height: 1.5;
+    }
+
+    a::after {
+      content: " (" attr(href) ")";
+      font-size: 0.85rem;
+      color: #444;
     }
 
     .only-print {
@@ -218,12 +250,10 @@
 
     header,
     nav,
-    .controle-idioma,
-    .voltar-topo,
     .botoes-contato,
+    .cta-pdf,
     .botao-destaque,
-    footer,
-    .cta-pdf {
+    footer {
       display: none !important;
     }
 
@@ -231,14 +261,9 @@
       max-width: 100%;
       padding: 0;
     }
-
-    a::after {
-      content: " (" attr(href) ")";
-      font-size: 0.9rem;
-    }
   }
 
-  /* 🔧 Utilitários visuais e estruturais */
+  /* 🧩 Utilitários visuais */
   .text-center {
     text-align: center;
   }
@@ -247,62 +272,24 @@
     color: var(--color-soft);
   }
 
-  .mt-lg {
-    margin-top: var(--space-lg);
-  }
+  .mt-xs { margin-top: var(--space-xs); }
+  .mt-sm { margin-top: var(--space-sm); }
+  .mt-md { margin-top: var(--space-md); }
+  .mt-lg { margin-top: var(--space-lg); }
 
-  .mb-md {
-    margin-bottom: var(--space-md);
-  }
+  .mb-xs { margin-bottom: var(--space-xs); }
+  .mb-sm { margin-bottom: var(--space-sm); }
+  .mb-md { margin-bottom: var(--space-md); }
+  .mb-lg { margin-bottom: var(--space-lg); }
 
-  .gap-lg {
-    gap: var(--gap-lg);
-  }
+  .gap-md { gap: var(--gap-md); }
+  .gap-lg { gap: var(--gap-lg); }
 
-  .rounded-lg {
-    border-radius: var(--radius-lg);
-  }
+  .rounded-sm { border-radius: var(--radius-sm); }
+  .rounded-md { border-radius: var(--radius-md); }
+  .rounded-lg { border-radius: var(--radius-lg); }
+
+  .shadow-sm { box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+  .shadow-md { box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
+  .shadow-lg { box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
 }
-
-/* ============================================================================
-📦 TOKENS EXPORTÁVEIS (MODELO JSON) — base.css v5.1
-🔁 Compatível com: Style Dictionary, Tailwind, Figma Tokens, Theme UI
-============================================================================= */
-/*
-{
-  "color": {
-    "bg":         { "value": "#0d0d0d" },
-    "fg":         { "value": "#ffffff" },
-    "soft":       { "value": "#9e9e9e" },
-    "accent":     { "value": "#00c853" },
-    "hover":      { "value": "#00e676" },
-    "contrast":   { "value": "#1a1a1a" }
-  },
-  "font": {
-    "body":       { "value": "'Inter', sans-serif" },
-    "base":       { "value": "1rem" },
-    "scale":      { "value": "clamp(0.875rem, 1.2vw, 1.125rem)" }
-  },
-  "radius": {
-    "sm":         { "value": "4px" },
-    "base":       { "value": "6px" },
-    "lg":         { "value": "12px" }
-  },
-  "space": {
-    "xs":         { "value": "0.5rem" },
-    "sm":         { "value": "1rem" },
-    "md":         { "value": "1.5rem" },
-    "lg":         { "value": "2rem" }
-  },
-  "gap": {
-    "sm":         { "value": "0.75rem" },
-    "lg":         { "value": "2.5rem" }
-  },
-  "max-width": {
-    "default":    { "value": "1200px" }
-  },
-  "transition": {
-    "soft":       { "value": "0.3s ease" }
-  }
-}
-*/
