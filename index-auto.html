@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <title>Redirecting by Language • Graciliano Tolentino</title>
+
+  <!-- 🌐 SEO Multilíngue e Canonical -->
+  <link rel="canonical" href="https://gracilianotolentino.org/index-auto.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://gracilianotolentino.org/index.html" />
+  <link rel="alternate" hreflang="en" href="https://gracilianotolentino.org/index-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://gracilianotolentino.org/index-auto.html" />
+
+  <!-- 🧠 JSON-LD para contexto semântico mínimo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Idioma automático – Graciliano Tolentino",
+    "url": "https://gracilianotolentino.org/index-auto.html",
+    "author": {
+      "@type": "Person",
+      "name": "Graciliano Tolentino",
+      "url": "https://gracilianotolentino.org"
+    }
+  }
+  </script>
+
+  <!-- 🎨 Estilo com Modo Escuro e Modular -->
+  <link rel="stylesheet" href="/assets/css/redirect.css" />
+
+
+  <!-- 🧠 Redirecionamento multilíngue com cache inteligente -->
+  <script>
+    (function () {
+      try {
+        const qs = new URLSearchParams(window.location.search);
+        const override = qs.get("lang");
+        const cookiesEnabled = navigator.cookieEnabled;
+        const saved = localStorage.getItem("preferredLang");
+        const cookieLang = document.cookie.match(/preferredLang=(en|pt-BR)/)?.[1];
+        const langs = navigator.languages || [navigator.language || navigator.userLanguage];
+        const fallback = langs.find(l => l.startsWith("pt")) ? "pt-BR" : "en";
+        const lang = override || saved || cookieLang || fallback;
+
+        // 🔧 Define idioma e direção do HTML
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "en" ? "ltr" : "ltr";
+
+        // 💾 Persistência
+        if (override) localStorage.setItem("preferredLang", override);
+        if (!saved) localStorage.setItem("preferredLang", lang);
+        if (cookiesEnabled && !cookieLang) document.cookie = `preferredLang=${lang}; path=/; max-age=31536000`;
+
+        // 📊 Logging leve (pode ser trocado por GA4, Matomo etc)
+        console.info("🌐 Redirecionamento com idioma:", lang);
+
+        // 🚀 Redirecionamento
+        const destination = lang === "en" ? "/index-en.html" : "/index.html";
+        window.location.href = destination;
+      } catch (err) {
+        console.error("Erro no redirecionamento multilíngue:", err);
+      }
+    })();
+  </script>
+</head>
+
+<body role="document">
+  <main id="main" role="region" aria-label="Idioma detectado automaticamente">
+    <h1>🌐 Detectando sua preferência de idioma...</h1>
+    <p>Você será redirecionado automaticamente com base nas configurações do navegador.</p>
+
+    <!-- 🔁 Fallback manual multilíngue -->
+    <div class="fallback" role="navigation" aria-label="Escolha manual de idioma">
+      <p>Ou selecione manualmente:</p>
+
+      <a href="/index.html"
+         hreflang="pt-BR"
+         lang="pt-BR"
+         rel="noopener"
+         aria-label="Ver currículo em português 🇧🇷">
+        🇧🇷 Visualizar em Português
+      </a>
+
+      <a href="/index-en.html"
+         hreflang="en"
+         lang="en"
+         rel="noopener"
+         aria-label="View resume in English 🇺🇸">
+        🇺🇸 View in English
+      </a>
+
+      <!-- 🔁 Botão de redefinição de idioma com microinteração -->
+      <button class="reset-button"
+              onclick="localStorage.removeItem('preferredLang'); document.cookie = 'preferredLang=; Max-Age=0; path=/'; location.reload();"
+              aria-label="Redefinir idioma salvo e recarregar página">
+        🔁 Redefinir idioma salvo
+      </button>
+    </div>
+  </main>
+
+  <!-- 🛑 Fallback para navegadores sem JavaScript -->
+  <noscript>
+    <div style="margin-top: 2rem; background-color: #fff3cd; color: #333; padding: 1rem; border: 1px solid #ffc107; border-radius: 5px;">
+      <strong>⚠️ JavaScript desativado:</strong><br />
+      A detecção automática de idioma requer JavaScript. Utilize os botões acima para acessar o conteúdo manualmente.
+    </div>
+  </noscript>
+</body>
+</html>
+

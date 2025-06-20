@@ -1,0 +1,123 @@
+<header class="cabecalho-site" role="banner" aria-label="Cabeçalho do currículo de Graciliano Tolentino">
+  <div class="container flex-header">
+    <!-- 🔗 Logotipo / Nome -->
+    <div class="identidade-site">
+      <a href="/" title="Ir para a página inicial" aria-label="Início">
+        <strong class="marca">Graciliano Tolentino</strong>
+        <span class="submarca">Tecnologia com Propósito</span>
+      </a>
+    </div>
+
+    <!-- 🧭 Navegação Principal -->
+    <nav class="navegacao-principal" role="navigation" aria-label="Navegação principal">
+      <ul class="menu">
+        <li><a href="#formacao" title="Ver formação acadêmica" aria-current="page">Formação</a></li>
+        <li><a href="#experiencia" title="Ver experiência profissional">Experiência</a></li>
+        <li><a href="#contato" title="Ver formas de contato">Contato</a></li>
+        <li>
+          <a href="/docs/curriculo-graciliano.pdf" download title="Baixar currículo em PDF" class="btn-download">
+            📄 PDF
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 🌐 Alternância de idioma com destaque automático -->
+    <div class="controle-idioma" aria-label="Seletor de idioma" role="group">
+      <button
+        id="btn-pt"
+        onclick="window.location.href='/index.html'"
+        lang="pt-BR"
+        title="Português do Brasil"
+        class="idioma"
+      >
+        🇧🇷
+      </button>
+      <button
+        id="btn-en"
+        onclick="window.location.href='/index-en.html'"
+        lang="en"
+        title="English"
+        class="idioma"
+      >
+        🇺🇸
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const userLang = (navigator.language || navigator.userLanguage || 'pt-BR').toLowerCase();
+  const btnPT = document.getElementById("btn-pt");
+  const btnEN = document.getElementById("btn-en");
+
+  if (userLang.startsWith("en")) {
+    btnEN.classList.add("ativo");
+    btnEN.setAttribute("aria-pressed", "true");
+    btnPT.setAttribute("aria-pressed", "false");
+  } else {
+    btnPT.classList.add("ativo");
+    btnPT.setAttribute("aria-pressed", "true");
+    btnEN.setAttribute("aria-pressed", "false");
+  }
+</script>
+
+<!-- 📱 Menu Responsivo para Mobile -->
+<details class="menu-mobile" role="navigation" aria-label="Menu móvel">
+  <summary aria-label="Abrir menu principal">☰ Menu</summary>
+  <ul class="menu-mobile-lista">
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="/docs/curriculo-graciliano.pdf" download>📄 PDF</a></li>
+    <li>
+      <div class="controle-idioma-mobile" aria-label="Trocar idioma" role="group">
+        <button id="btn-pt-mobile" onclick="window.location.href='/index.html'" lang="pt-BR" title="Português">🇧🇷</button>
+        <button id="btn-en-mobile" onclick="window.location.href='/index-en.html'" lang="en" title="English">🇺🇸</button>
+      </div>
+    </li>
+  </ul>
+</details>
+
+<script>
+  const userLangMobile = (navigator.language || navigator.userLanguage || 'pt-BR').toLowerCase();
+  const btnPTMobile = document.getElementById("btn-pt-mobile");
+  const btnENMobile = document.getElementById("btn-en-mobile");
+
+  if (userLangMobile.startsWith("en")) {
+    btnENMobile.classList.add("ativo");
+    btnENMobile.setAttribute("aria-pressed", "true");
+    btnPTMobile.setAttribute("aria-pressed", "false");
+  } else {
+    btnPTMobile.classList.add("ativo");
+    btnPTMobile.setAttribute("aria-pressed", "true");
+    btnENMobile.setAttribute("aria-pressed", "false");
+  }
+</script>
+
+<!-- 🔖 SEO Avançado: JSON-LD para identificação profissional estruturada -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Graciliano Tolentino",
+  "url": "https://gracilianotolentino.org",
+  "sameAs": [
+    "https://github.com/Graciliano-Tolentino",
+    "https://www.linkedin.com/in/graciliano-tolentino-64a962164/"
+  ],
+  "jobTitle": "Desenvolvedor de Software Multiplataforma",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Agroverso"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "FATEC Cotia"
+  },
+  "birthPlace": "Cotia, SP, Brasil",
+  "nationality": "Brasileiro",
+  "knowsLanguage": ["pt-BR", "en"],
+  "description": "Currículo oficial de Graciliano Tolentino, especialista em IA aplicada ao agronegócio, fundador do Agroverso e desenvolvedor full stack com atuação estratégica em inovação e sustentabilidade tecnológica."
+}
+</script>

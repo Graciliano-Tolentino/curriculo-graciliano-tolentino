@@ -1,0 +1,153 @@
+# ============================================================================================
+# 🤖 robots.txt v5.0 — Graciliano Tolentino • Currículo PWA Multilíngue
+# 🛡️ SEO técnico internacional, antisscraping, multilíngue, acessível e escalável
+# ============================================================================================
+
+# 🌐 Regra Global para todos os bots com foco em performance e segurança
+User-agent: *
+Allow: /assets/
+Allow: /docs/
+Allow: /certificados/
+Allow: /projetos/
+Allow: /blog/
+Allow: /favicon.ico
+Allow: /curriculo-graciliano.pdf
+
+# 🔒 Bloqueios estratégicos e técnicos
+Disallow: /offline.html
+Disallow: /manifest.json
+Disallow: /service-worker.js
+Disallow: /redirect.css
+Disallow: /index-auto.html
+Disallow: /old/
+Disallow: /v1/
+Disallow: /beta/
+
+# 🚫 Bloqueio de parâmetros duplicadores de conteúdo
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?fbclid=*
+
+# 🗺️ Sitemap principal multilíngue
+Sitemap: https://gracilianotolentino.org/sitemap.xml
+
+# 📡 Host canônico
+Host: gracilianotolentino.org
+
+# ⏳ Frequência máxima sugerida
+Crawl-delay: 10
+
+# ============================================================================================
+# 🔍 Googlebot — Preferência total com filtros técnicos e proteção contra duplicações
+# ============================================================================================
+User-agent: Googlebot
+Allow: /
+Disallow: /offline.html
+Disallow: /manifest.json
+Disallow: /service-worker.js
+Disallow: /redirect.css
+Disallow: /index-auto.html
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?fbclid=*
+Crawl-delay: 5
+
+# ============================================================================================
+# 📸 Googlebot-Image — Liberação para imagens do currículo
+# ============================================================================================
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Disallow: /offline.html
+
+# ============================================================================================
+# 🧠 Bingbot — Equilibrado para Microsoft Search e Edge
+# ============================================================================================
+User-agent: Bingbot
+Allow: /
+Disallow: /offline.html
+Disallow: /index-auto.html
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?fbclid=*
+Crawl-delay: 8
+
+# ============================================================================================
+# 🍏 Applebot — Indexação de conteúdo por Siri e Spotlight
+# ============================================================================================
+User-agent: Applebot
+Allow: /
+Disallow: /offline.html
+Crawl-delay: 5
+
+# ============================================================================================
+# 📘 AhrefsBot — Somente conteúdo principal e autorizado
+# ============================================================================================
+User-agent: AhrefsBot
+Allow: /index.html
+Allow: /index-en.html
+Disallow: /
+Crawl-delay: 15
+
+# ============================================================================================
+# 📜 SemrushBot — Controle restrito de carga
+# ============================================================================================
+User-agent: SemrushBot
+Allow: /index.html
+Disallow: /offline.html
+Disallow: /index-auto.html
+Crawl-delay: 20
+
+# ============================================================================================
+# 🌏 YandexBot — Suporte à indexação internacional (RU)
+# ============================================================================================
+User-agent: Yandex
+Allow: /
+Disallow: /offline.html
+Disallow: /manifest.json
+Crawl-delay: 10
+
+# ============================================================================================
+# 🌸 PetalBot (Huawei) — Compatível com AppSearch e HarmonyOS
+# ============================================================================================
+User-agent: PetalBot
+Allow: /
+Disallow: /offline.html
+Crawl-delay: 10
+
+# ============================================================================================
+# 🤖 GPTBot (OpenAI) — Bloqueado para evitar scraping de IA
+# ============================================================================================
+User-agent: GPTBot
+Disallow: /
+
+# ============================================================================================
+# 🧠 ClaudeBot (Anthropic AI) — Bloqueio preventivo
+# ============================================================================================
+User-agent: ClaudeBot
+Disallow: /
+
+# ============================================================================================
+# 🌐 CCBot (Common Crawl) — Raspagem em larga escala desativada
+# ============================================================================================
+User-agent: CCBot
+Disallow: /
+
+# ============================================================================================
+# 🎯 ChatGPT-User — Navegação automatizada bloqueada
+# ============================================================================================
+User-agent: ChatGPT-User
+Disallow: /
+
+# ============================================================================================
+# 🧬 Bytespider (TikTok AI) — Extração de conteúdo desautorizada
+# ============================================================================================
+User-agent: Bytespider
+Disallow: /
+
+# ============================================================================================
+# 🌐 Observações multilíngues e contexto internacional
+# ============================================================================================
+# EN: This multilingual PWA supports Portuguese and English. Use hreflang and canonical tags.
+# PT: Este PWA multilíngue oferece versões em português e inglês. Utilize tags hreflang e canonical.
+
+# 📅 Última revisão técnica: 2025-06-21

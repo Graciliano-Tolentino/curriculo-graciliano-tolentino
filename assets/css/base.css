@@ -1,0 +1,308 @@
+/* ============================================================================
+📁 base.css v5.1 — Graciliano Tolentino
+🧠 Perfeito • Modular • RTL • Cascade Layer • Animável • Global
+============================================================================= */
+
+@layer base {
+  @property --color-accent {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #00c853;
+  }
+
+  :root,
+  [data-theme="dark"] {
+    --color-bg: #0d0d0d;
+    --color-fg: #ffffff;
+    --color-soft: #9e9e9e;
+    --color-accent: #00c853;
+    --color-contrast: #1a1a1a;
+    --color-hover: #00e676;
+
+    --font-body: 'Inter', sans-serif;
+    --font-base: 1rem;
+    --font-scale: clamp(0.875rem, 1.2vw, 1.125rem);
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --gap-sm: 0.75rem;
+    --gap-lg: 2.5rem;
+
+    --radius-sm: 4px;
+    --radius-base: 6px;
+    --radius-lg: 12px;
+
+    --max-width: 1200px;
+
+    --transition-soft: 0.3s ease;
+  }
+
+  [data-theme="light"],
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color-bg: #ffffff;
+      --color-fg: #111111;
+      --color-soft: #666666;
+      --color-accent: #007e33;
+      --color-contrast: #e0e0e0;
+      --color-hover: #00964b;
+    }
+  }
+
+  :root {
+    transition:
+      background-color var(--transition-soft),
+      color var(--transition-soft),
+      --color-accent var(--transition-soft);
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-size: var(--font-base);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color var(--transition-soft), color var(--transition-soft);
+  }
+}
+
+@layer layout {
+  /* 📦 Container centralizado */
+  .container {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-sm);
+  }
+
+  /* 🧱 Estrutura de seções verticais */
+  .secao {
+    margin-block: var(--space-lg);
+  }
+
+  .secao-titulo {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent);
+    text-align: center;
+  }
+
+  .subtitulo {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-soft);
+    text-align: center;
+    margin-top: var(--space-xs);
+  }
+
+  /* 🌐 RTL-ready para suporte internacional */
+  :root:dir(rtl) .secao-titulo,
+  :root:dir(rtl) .subtitulo {
+    text-align: right;
+  }
+
+  /* 📚 Tipografia refinada */
+  ul,
+  ol {
+    padding-left: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  ul li,
+  ol li {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-soft);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--color-hover);
+    outline: none;
+  }
+}
+
+@layer components {
+  /* 🎯 Botão institucional de destaque */
+  .botao-destaque {
+    background-color: var(--color-contrast);
+    color: var(--color-fg);
+    padding: 0.6rem 1.25rem;
+    border: none;
+    border-radius: var(--radius-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-soft), color var(--transition-soft);
+  }
+
+  .botao-destaque:hover,
+  .botao-destaque:focus {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    outline: none;
+  }
+
+  /* 📎 Botão secundário com borda (copiar, leve) */
+  .botoes-contato button {
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid var(--color-accent);
+    background: transparent;
+    color: var(--color-accent);
+    border-radius: var(--radius-base);
+    padding: 0.5rem 1rem;
+    transition: all var(--transition-soft);
+  }
+
+  .botoes-contato button:hover,
+  .botoes-contato button:focus {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    outline: none;
+  }
+}
+
+@layer utils {
+  /* 🙈 Acessibilidade: ocultar visualmente sem remover do fluxo */
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* 🖨️ Impressão seletiva */
+  .no-print {
+    display: none !important;
+  }
+
+  .only-print {
+    display: none;
+  }
+
+  @media print {
+    body {
+      background-color: #fff;
+      color: #000;
+      font-size: 12pt;
+      line-height: 1.5;
+    }
+
+    .only-print {
+      display: block !important;
+    }
+
+    header,
+    nav,
+    .controle-idioma,
+    .voltar-topo,
+    .botoes-contato,
+    .botao-destaque,
+    footer,
+    .cta-pdf {
+      display: none !important;
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    a::after {
+      content: " (" attr(href) ")";
+      font-size: 0.9rem;
+    }
+  }
+
+  /* 🔧 Utilitários visuais e estruturais */
+  .text-center {
+    text-align: center;
+  }
+
+  .text-muted {
+    color: var(--color-soft);
+  }
+
+  .mt-lg {
+    margin-top: var(--space-lg);
+  }
+
+  .mb-md {
+    margin-bottom: var(--space-md);
+  }
+
+  .gap-lg {
+    gap: var(--gap-lg);
+  }
+
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+}
+
+/* ============================================================================
+📦 TOKENS EXPORTÁVEIS (MODELO JSON) — base.css v5.1
+🔁 Compatível com: Style Dictionary, Tailwind, Figma Tokens, Theme UI
+============================================================================= */
+/*
+{
+  "color": {
+    "bg":         { "value": "#0d0d0d" },
+    "fg":         { "value": "#ffffff" },
+    "soft":       { "value": "#9e9e9e" },
+    "accent":     { "value": "#00c853" },
+    "hover":      { "value": "#00e676" },
+    "contrast":   { "value": "#1a1a1a" }
+  },
+  "font": {
+    "body":       { "value": "'Inter', sans-serif" },
+    "base":       { "value": "1rem" },
+    "scale":      { "value": "clamp(0.875rem, 1.2vw, 1.125rem)" }
+  },
+  "radius": {
+    "sm":         { "value": "4px" },
+    "base":       { "value": "6px" },
+    "lg":         { "value": "12px" }
+  },
+  "space": {
+    "xs":         { "value": "0.5rem" },
+    "sm":         { "value": "1rem" },
+    "md":         { "value": "1.5rem" },
+    "lg":         { "value": "2rem" }
+  },
+  "gap": {
+    "sm":         { "value": "0.75rem" },
+    "lg":         { "value": "2.5rem" }
+  },
+  "max-width": {
+    "default":    { "value": "1200px" }
+  },
+  "transition": {
+    "soft":       { "value": "0.3s ease" }
+  }
+}
+*/

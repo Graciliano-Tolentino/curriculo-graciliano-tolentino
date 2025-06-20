@@ -1,0 +1,89 @@
+<footer class="rodape-site" role="contentinfo" itemscope itemtype="https://schema.org/Person" aria-label="Rodapé institucional de Graciliano Tolentino">
+  <meta itemprop="name" content="Graciliano Tolentino" />
+  <meta itemprop="url" content="https://gracilianotolentino.org" />
+  <meta itemprop="sameAs" content="https://github.com/Graciliano-Tolentino" />
+  <meta itemprop="sameAs" content="https://www.linkedin.com/in/graciliano-tolentino-64a962164/" />
+  <meta itemprop="email" content="gracilianotolentino@gmail.com" />
+  <meta itemprop="telephone" content="+55-11-96337-2373" />
+
+  <div class="container rodape-grid">
+    <!-- 🔗 Links rápidos -->
+    <nav class="rodape-links" aria-label="Links institucionais">
+      <ul class="lista-links" role="list">
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="/docs/curriculo-graciliano.pdf" download>📄 PDF</a></li>
+      </ul>
+    </nav>
+
+    <!-- 🌐 Redes sociais com acessibilidade, foco visível e proteção de privacidade -->
+    <div class="rodape-redes" aria-label="Redes sociais de Graciliano Tolentino" role="navigation">
+      <a href="https://github.com/Graciliano-Tolentino"
+         target="_blank"
+         rel="noopener noreferrer"
+         referrerpolicy="no-referrer"
+         aria-label="GitHub de Graciliano Tolentino"
+         class="rede-social">
+        <img src="/assets/icons/github.svg" alt="GitHub" loading="lazy" width="24" height="24" />
+      </a>
+      <a href="https://linkedin.com/in/graciliano-tolentino-64a962164"
+         target="_blank"
+         rel="noopener noreferrer"
+         referrerpolicy="no-referrer"
+         aria-label="LinkedIn de Graciliano Tolentino"
+         class="rede-social">
+        <img src="/assets/icons/linkedin.svg" alt="LinkedIn" loading="lazy" width="24" height="24" />
+      </a>
+    </div>
+
+    <!-- 🌍 Alternância de idioma com destaque ativo e acessibilidade -->
+    <div class="rodape-idiomas" role="group" aria-label="Seletor de idioma">
+      <a href="/index.html" lang="pt-BR" class="idioma-link" id="idioma-pt">🇧🇷</a>
+      <a href="/index-en.html" lang="en" class="idioma-link" id="idioma-en">🇺🇸</a>
+    </div>
+
+    <!-- ⬆️ Botão de retorno ao topo com foco acessível -->
+    <div class="voltar-topo">
+      <a href="#topo" class="botao-topo" title="Voltar ao início da página" aria-label="Topo da página">⬆️ Topo</a>
+    </div>
+
+    <!-- 🧾 Declaração institucional multilíngue -->
+    <div class="rodape-creditos">
+      <p>© <span id="ano-atual">2025</span> Graciliano Tolentino — Todos os direitos reservados.</p>
+      <p>Versão digital multilíngue, responsiva e semanticamente otimizada.</p>
+      <p>Desenvolvido com sabedoria, força e beleza.</p>
+    </div>
+  </div>
+
+  <!-- 🧠 Scripts auxiliares -->
+  <script>
+    // Atualiza o ano automaticamente
+    const ano = document.getElementById("ano-atual");
+    if (ano) ano.textContent = new Date().getFullYear();
+
+    // Destaca idioma ativo com base no navegador
+    const lang = (navigator.language || navigator.userLanguage || "pt-BR").toLowerCase();
+    const idiomaPT = document.getElementById("idioma-pt");
+    const idiomaEN = document.getElementById("idioma-en");
+
+    if (lang.startsWith("en")) {
+      idiomaEN.classList.add("ativo");
+      idiomaEN.setAttribute("aria-current", "true");
+      idiomaPT.classList.remove("ativo");
+      idiomaPT.removeAttribute("aria-current");
+    } else {
+      idiomaPT.classList.add("ativo");
+      idiomaPT.setAttribute("aria-current", "true");
+      idiomaEN.classList.remove("ativo");
+      idiomaEN.removeAttribute("aria-current");
+    }
+  </script>
+
+  <!-- 🚫 Fallback para navegadores com JS desabilitado -->
+  <noscript>
+    <p style="text-align:center; background:#fff3cd; color:#333; padding:1rem; border-top:2px solid #ffc107;">
+      ⚠️ Algumas funções estão limitadas porque o JavaScript está desabilitado.
+    </p>
+  </noscript>
+</footer>

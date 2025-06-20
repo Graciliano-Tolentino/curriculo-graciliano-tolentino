@@ -1,0 +1,86 @@
+/* ========================================================
+🌐 redirect.css — Estilo Modular para Redirecionamento Multilíngue
+======================================================== */
+
+/* 🧭 Tema base com suporte nativo a modo escuro */
+:root {
+  color-scheme: light dark;
+}
+
+html, body {
+  font-family: system-ui, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+  padding: 3rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
+
+  .fallback a {
+    background-color: #f0f0f0;
+    color: #1e1e1e;
+  }
+}
+
+/* 🔁 Container dos botões alternativos */
+.fallback {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.fallback a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background-color: #1A1A1A;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.fallback a:hover {
+  background-color: #333;
+  transform: scale(1.02);
+}
+
+/* 🔄 Botão de redefinição de idioma */
+.reset-button {
+  display: block;
+  margin: 1.75rem auto 0;
+  font-size: 0.9rem;
+  background: transparent;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.reset-button:hover {
+  opacity: 0.75;
+}
+
+/* 🚫 Aviso para navegadores sem JavaScript */
+noscript div {
+  margin-top: 2rem;
+  background-color: #fff3cd;
+  color: #333;
+  padding: 1rem;
+  border: 1px solid #ffc107;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
