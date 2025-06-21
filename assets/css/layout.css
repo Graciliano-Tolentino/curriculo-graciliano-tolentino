@@ -1,0 +1,87 @@
+/* ============================================================================
+📐 layout.css — Layout com 3 colunas fluido e responsivo
+🎯 Menu lateral esquerdo (foto + projetos), centro (conteúdo), direito (livros)
+============================================================================= */
+
+body {
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #2e2e2e;
+  font-family: 'Inter', sans-serif;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.menu-esquerdo,
+.menu-direito {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.foto-perfil {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.menu-esquerdo nav a {
+  display: block;
+  color: #0077b6;
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.menu-esquerdo nav a:hover {
+  color: #48cae4;
+}
+
+/* Conteúdo central */
+.conteudo-central {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* Galeria de imagens */
+.galeria-projeto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.galeria-projeto img:hover {
+  transform: scale(1.02);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .menu-esquerdo,
+  .menu-direito {
+    position: static;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
