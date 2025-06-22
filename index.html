@@ -1,41 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR" dir="ltr">
+<html lang="pt-BR" dir="ltr" xml:lang="pt-BR">
 <head>
   <!-- ✅ Codificação e Responsividade -->
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#f4f6f8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 
   <!-- 🎯 SEO Estratégico e Identidade -->
   <title>Currículo • Graciliano Tolentino</title>
-  <meta name="description" content="Currículo oficial e digital de Graciliano Tolentino — CEO do Agroverso desenvolvedor de software Full-Stack, especialista em IA, filâmtropo, escritor e músico." />
+  <meta name="description" content="Currículo oficial e digital de Graciliano Tolentino — CEO do Agroverso desenvolvedor de software Full-Stack, especialista em IA, filantropo, escritor e músico." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Graciliano Tolentino" />
-  <link rel="canonical" href="https://gracilianotolentino.org" />
+  <meta name="keywords" content="Graciliano Tolentino, currículo, IA, Agroverso, desenvolvedor, software, full stack, inteligência artificial, PWA" />
+  <link rel="canonical" href="https://gracilianotolentino.org/" />
 
   <!-- 🌐 Hreflang e Internacionalização -->
-  <link rel="alternate" hreflang="pt-BR" href="https://gracilianotolentino.org" />
+  <link rel="alternate" hreflang="pt-BR" href="https://gracilianotolentino.org/" />
   <link rel="alternate" hreflang="en" href="https://gracilianotolentino.org/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://gracilianotolentino.org/" />
 
   <!-- 🧭 Ícones e Manifesto PWA -->
   <link rel="manifest" href="/manifest.json" />
   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/images/icon-192.png" />
 
-  <!-- 🎨 Fontes e Estilo Visual -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- 🎨 Fontes e Estilo Visual com Preload -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="/assets/css/base.css" />
   <link rel="stylesheet" href="/assets/css/layout.css" />
   <link rel="stylesheet" href="/assets/css/responsivo.css" />
   <link rel="stylesheet" href="/assets/css/cores-tipografia.css" />
+  <link rel="stylesheet" href="/assets/css/print.css" media="print" />
 
   <!-- 🌍 Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Graciliano Tolentino — CEO do AGROVERSO.TEC, Desenvolvedor Full Stack e Inovador em IA" />
   <meta property="og:description" content="Currículo digital com soluções em software, inteligência artificial e agronegócio regenerativo." />
   <meta property="og:image" content="https://gracilianotolentino.org/assets/images/social-preview.jpg" />
-  <meta property="og:url" content="https://gracilianotolentino.org" />
+  <meta property="og:url" content="https://gracilianotolentino.org/" />
   <meta property="profile:username" content="graciliano-tolentino" />
 
   <!-- 🐦 Twitter Card -->
@@ -43,6 +50,7 @@
   <meta name="twitter:title" content="Graciliano Tolentino — Desenvolvedor de Software" />
   <meta name="twitter:description" content="Especialista em IA e tecnologia sustentável. Fundador do Agroverso." />
   <meta name="twitter:image" content="https://gracilianotolentino.org/assets/images/social-preview.jpg" />
+  <meta name="twitter:site" content="@gracilitolentino" />
 
   <!-- 🔖 Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -50,7 +58,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Graciliano Tolentino",
-    "url": "https://gracilianotolentino.org",
+    "url": "https://gracilianotolentino.org/",
     "sameAs": [
       "https://github.com/Graciliano-Tolentino",
       "https://www.linkedin.com/in/graciliano-tolentino-64a962164/"
@@ -62,7 +70,13 @@
     "alumniOf": {
       "@type": "CollegeOrUniversity",
       "name": "FATEC Cotia"
-    }
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Agroverso"
+    },
+    "knowsAbout": ["Inteligência Artificial", "Desenvolvimento Web", "PWA"],
+    "hasCredential": ["Certificação AWS", "Certificação Python Pro"]
   }
   </script>
 
@@ -76,23 +90,41 @@
 </head>
 
 <body lang="pt-BR" dir="ltr" itemscope itemtype="https://schema.org/Person" itemid="#graciliano">
+  
   <!-- 🧬 Microdados Schema.org -->
   <meta itemprop="name" content="Graciliano Tolentino" />
   <meta itemprop="jobTitle" content="CEO do Agroverso - Desenvolvedor de Software Multiplataforma" />
   <meta itemprop="nationality" content="Brasileiro" />
   <meta itemprop="birthPlace" content="Cotia, SP, Brasil" />
-  <meta itemprop="knowsLanguage" content="pt-BR" />
-  <meta itemprop="knowsLanguage" content="en" />
+  <meta itemprop="knowsLanguage" content="pt-BR, en" />
 
-  <!-- 🔼 Cabeçalho principal -->
+  <!-- 🔼 Cabeçalho modular -->
   <header role="banner" aria-label="Cabeçalho do site">
     <div data-include="partials/header.html"></div>
   </header>
 
+  <!-- 🧭 Menu lateral esquerdo (foto, descrição e projetos) -->
+  <aside class="menu-esquerdo" role="complementary" aria-label="Navegação lateral esquerda">
+    <div class="perfil-lateral">
+      <img src="/assets/images/graciliano.jpg" alt="Graciliano Tolentino sorrindo" class="foto-perfil">
+      <p class="descricao-curta">CEO do Agroverso, especialista em software e IA regenerativa.</p>
+    </div>
+
+    <nav aria-label="Projetos principais">
+      <h2>🚀 Projetos</h2>
+      <ul>
+        <li><a href="/galeria/agroverso/">Agroverso</a></li>
+        <li><a href="/galeria/cabare-do-chefe/">Cabaré do Chefe</a></li>
+        <li><a href="/galeria/livros/">Livros Publicados</a></li>
+      </ul>
+    </nav>
+  </aside>
+
   <!-- 🚀 Conteúdo principal -->
-  <main id="conteudo-principal" role="main" aria-label="Currículo digital de Graciliano Tolentino">
-    <!-- 👤 Seção de Perfil -->
-    <section class="perfil" aria-labelledby="titulo-perfil">
+  <main id="conteudo-principal" role="main" aria-label="Currículo digital de Graciliano Tolentino" tabindex="0">
+
+    <!-- 👤 Perfil -->
+    <section class="perfil" aria-labelledby="titulo-perfil" tabindex="0" accesskey="1">
       <div class="container">
         <h1 id="titulo-perfil" class="secao-titulo">Graciliano Tolentino</h1>
         <p class="subtitulo">CEO e Fundador do Agroverso.tec • Desenvolvedor Full Stack • IA para o Agro </p>
@@ -100,7 +132,7 @@
     </section>
 
     <!-- 🎓 Formação Acadêmica -->
-    <section id="formacao" class="secao" aria-labelledby="titulo-formacao">
+    <section id="formacao" class="secao" aria-labelledby="titulo-formacao" tabindex="0" accesskey="2">
       <div class="container">
         <h2 id="titulo-formacao" class="secao-titulo">🎓 Formação Acadêmica</h2>
         <ul class="lista-detalhada">
@@ -108,30 +140,24 @@
             <strong>FATEC Cotia</strong> — Desenvolvimento de Software Multiplataforma (DSM)<br />
             <span class="data">Início: 2024 • Conclusão prevista: 2027</span>
           </li>
-
-
-<li>
-            <strong>Engenharia Civil</strong> <br />
-            <span class="data">Universidade Federal de Alagoas (UFAL</span>
+          <li>
+            <strong>Engenharia Civil</strong> — Universidade Federal de São Paulo (UFAL)<br />
+            <span class="data">Trancado</span>
           </li>
-
-<li>
-            <strong>Bacharelado em Ciência e Tecnologia do Mar - Campus Ponta da Praia</strong> <br />
-            <span class="data">Universidade Federal de São Paulo (UNIFESP</span>
+          <li>
+            <strong>Bacharelado em Ciência e Tecnologia do Mar</strong> — UNIFESP<br />
+            <span class="data">Em andamento</span>
           </li>
-
-<li>
-            <strong>FATEC Cotia</strong> — Engenharia da Computação <br />
-            <span class="data">Universidade Virtual do Estado de São Paulo (UNIVESP</span>
+          <li>
+            <strong>Engenharia da Computação</strong> — FATEC Cotia (EaD)<br />
+            <span class="data">Em andamento</span>
           </li>
-          
-
         </ul>
       </div>
     </section>
 
     <!-- 💼 Experiência Profissional -->
-    <section id="experiencia" class="secao" aria-labelledby="titulo-experiencia">
+    <section id="experiencia" class="secao" aria-labelledby="titulo-experiencia" tabindex="0" accesskey="3">
       <div class="container">
         <h2 id="titulo-experiencia" class="secao-titulo">💼 Experiência Profissional</h2>
 
@@ -144,20 +170,20 @@
         <article class="card-experiencia" aria-labelledby="igrac-role">
           <h3 id="igrac-role" class="cargo">Instituto Graciliana Maria da Conceição</h3>
           <p class="data">Tesoureiro • 2024–Presente</p>
-          <p>Atuação estratégica na liderança de programas sociais e tecnológicos para comunidades rurais e periféricas, com foco em inclusão digital, soberania alimentar e autonomia energética.</p>
+          <p>Atuação estratégica em inclusão digital, soberania alimentar e autonomia energética.</p>
         </article>
       </div>
     </section>
 
     <!-- 📱 Contato Rápido -->
-    <section id="contato-rapido" class="secao" aria-labelledby="titulo-contato-rapido">
+    <section id="contato-rapido" class="secao" aria-labelledby="titulo-contato-rapido" tabindex="0" accesskey="4">
       <div class="container">
         <h2 id="titulo-contato-rapido" class="secao-titulo">📱 Contato Rápido</h2>
-        <div class="botoes-contato" role="group" aria-label="Botões de contato direto">
-          <button class="botao-destaque" onclick="navigator.clipboard.writeText('gracilianoto.lentino@fatec.sp.gov.br')" aria-label="Copiar e-mail para área de transferência">
+        <div class="botoes-contato">
+          <button onclick="navigator.clipboard.writeText('graciliano.tolentino@fatec.sp.gov.br')">
             📧 Copiar E-mail
           </button>
-          <button class="botao-destaque" onclick="navigator.clipboard.writeText('+5511963372373')" aria-label="Copiar telefone para área de transferência">
+          <button onclick="navigator.clipboard.writeText('+5511963372373')">
             📞 Copiar Telefone
           </button>
         </div>
@@ -165,90 +191,60 @@
     </section>
 
     <!-- 📇 Contato Formal -->
-    <section id="contato" class="secao" aria-labelledby="titulo-contato">
+    <section id="contato" class="secao" aria-labelledby="titulo-contato" tabindex="0" accesskey="5">
       <div class="container">
         <h2 id="titulo-contato" class="secao-titulo">📇 Contato Formal</h2>
         <ul class="lista-contato">
-          <li>Email: <a href="mailto:gracilianotolentino@gmail.com">graciliano.tolentino@fatec.sp.gov.br</a></li>
+          <li>Email: <a href="mailto:graciliano.tolentino@fatec.sp.gov.br">graciliano.tolentino@fatec.sp.gov.br</a></li>
           <li>Telefone: <a href="tel:+5511963372373">(11) 9 6337-2373</a></li>
-          <li>LinkedIn: <a href="https://linkedin.com/in/graciliano-tolentino-64a962164" target="_blank" rel="noopener noreferrer">linkedin.com/in/graciliano-tolentino</a></li>
+          <li>LinkedIn: <a href="https://linkedin.com/in/graciliano-tolentino-64a962164" target="_blank">linkedin.com/in/graciliano-tolentino</a></li>
         </ul>
         <div class="cta-pdf">
-          <a href="/docs/curriculo-graciliano.pdf" class="botao-destaque" download>
+          <a href="/docs/curriculo-graciliano.pdf" download>
             📄 Baixar Currículo em PDF
           </a>
-          <button onclick="window.print()" class="botao-destaque" aria-label="Imprimir este currículo">
+          <button onclick="window.print()">
             🖨️ Imprimir
           </button>
         </div>
       </div>
     </section>
 
-     </main>
+  </main>
 
-  <!-- 🔻 Rodapé -->
-  <footer role="contentinfo" aria-label="Rodapé do site">
-    <div class="container" style="text-align:center; padding: 2rem 1rem;">
-      <p>© 2025 Graciliano Tolentino — Todos os direitos reservados.</p>
-      <p>Versão digital responsiva com suporte PWA, SEO avançado e acessibilidade multilíngue.</p>
-    </div>
+  <!-- 📚 Menu lateral direito (livros e certificados) -->
+  <aside class="menu-direito" role="complementary" aria-label="Publicações e certificados">
+    <nav aria-label="Livros e certificados">
+      <h2>📚 Livros Publicados</h2>
+      <ul>
+        <li><a href="/secoes/livros.html">Método Caracol</a></li>
+        <li><a href="/secoes/livros.html">Mini Manual do Guerrilheiro Digital</a></li>
+      </ul>
+      <h2>🎓 Certificados</h2>
+      <ul>
+        <li><a href="/secoes/certificados.html">Certificados Técnicos</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- 🔻 Rodapé modular -->
+  <footer role="contentinfo">
+    <div data-include="partials/footer.html"></div>
   </footer>
 
-  <!-- 📲 Instalação e Atualização de Service Worker -->
-  <script>
-    window.addEventListener("beforeinstallprompt", (e) => {
-      window.deferredPrompt = e;
-    });
-
-    window.addEventListener("appinstalled", () => {
-      console.log("✅ PWA instalada com sucesso");
-    });
-
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/service-worker.js").then(() => {
-        navigator.serviceWorker.addEventListener("message", (event) => {
-          if (event.data?.type === "NEW_VERSION_AVAILABLE") {
-            const button = document.createElement("button");
-            button.textContent = "🔄 Nova versão disponível – Recarregar agora";
-            Object.assign(button.style, {
-              position: "fixed",
-              top: "1rem",
-              right: "1rem",
-              padding: "0.75rem 1.25rem",
-              background: "#0077b6",
-              color: "#fff",
-              border: "none",
-              borderRadius: "6px",
-              zIndex: 9999,
-              cursor: "pointer",
-              fontWeight: "600",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
-            });
-            button.onclick = () => location.reload();
-            document.body.appendChild(button);
-          }
-        });
-      });
-    }
-  </script>
-
-  <!-- 🚫 Fallback para navegadores sem JavaScript -->
+  <!-- 🚫 Fallback sem JavaScript -->
   <noscript>
     <style>
-      [data-include] { display: none !important; }
-      body::before {
-        content: "⚠️ Este site requer JavaScript habilitado.";
-        display: block;
-        padding: 1.5rem;
-        background-color: #fff3cd;
-        color: #212529;
-        font-family: system-ui, sans-serif;
-        font-size: 1rem;
-        font-weight: bold;
-        text-align: center;
-        border-bottom: 3px solid #ffc107;
-      }
+      [data-include]{display:none;}
+      body::before{content:"⚠️ Ative JavaScript.";padding:1rem;background:#ffc;}
     </style>
   </noscript>
+
+<!-- Antes do fechamento do </body> -->
+<script src="/assets/js/header.js" defer></script>
+<script src="/assets/js/accessibility.js" defer></script>
+
+<!-- Apenas em páginas com listas (ex. livros.html ou certificados.html) -->
+<script src="/assets/js/search-filter.js" defer></script>
+
 </body>
-</html>

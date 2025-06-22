@@ -1,0 +1,130 @@
+/**
+ * 📌 Estilos Avançados para Página Livros (High Tech v4.1)
+ *
+ * ✅ Melhorias aplicadas:
+ * - Responsividade absoluta
+ * - Efeitos visuais premium
+ * - Acessibilidade e contraste aprimorados
+ * - Escalabilidade modular com variáveis CSS
+ *
+ * @author Graciliano Tolentino
+ * @version 4.1
+ */
+
+/* 🌐 Variáveis CSS Globais e Modulares */
+:root {
+  --cor-fundo: #ffffff;
+  --cor-fundo-dark: #1A1A1A;
+  --cor-texto: #333;
+  --cor-texto-dark: #ddd;
+  --cor-destaque: #007bff;
+  --sombra-suave: rgba(0, 0, 0, 0.1);
+  --transicao-suave: all 0.3s ease-in-out;
+}
+
+/* 🎨 Suporte a Dark Mode com alto contraste */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cor-fundo: var(--cor-fundo-dark);
+    --cor-texto: var(--cor-texto-dark);
+    --sombra-suave: rgba(0, 0, 0, 0.4);
+  }
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+/* 📚 Estrutura e disposição da galeria de livros */
+.lista-livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.livro {
+  background: var(--cor-fundo);
+  box-shadow: 0 4px 10px var(--sombra-suave);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transicao-suave);
+  outline: none;
+}
+
+.livro-destaque,
+.livro:hover,
+.livro:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px var(--sombra-suave);
+  border: 1px solid var(--cor-destaque);
+}
+
+/* 🖼️ Estilos das Capas dos Livros */
+.livro img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  transition: var(--transicao-suave);
+}
+
+.livro:hover img,
+.livro:focus img {
+  transform: scale(1.05);
+}
+
+/* 📝 Tipografia dos detalhes dos livros */
+.detalhes-livro h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.detalhes-livro p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* 🔗 Botão de compra estilizado premium */
+.botao-destaque {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transicao-suave);
+}
+
+.botao-destaque:hover,
+.botao-destaque:focus {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* 📱 Responsividade Completa e Otimizada */
+@media (max-width: 768px) {
+  .lista-livros {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .livro {
+    padding: 1rem;
+  }
+
+  .detalhes-livro h2 {
+    font-size: 1.25rem;
+  }
+
+  .detalhes-livro p {
+    font-size: 0.9rem;
+  }
+}

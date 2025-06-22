@@ -1,147 +1,184 @@
 /* ============================================================================
-📁 header.css v3 — Graciliano Tolentino
-✨ High-Tech • Acessível • Responsivo • Dark Mode • SEO e UX Real
+📁 header.css v5 — Graciliano Tolentino
+✨ High-Tech • Ultra Responsivo • Dark Mode Dinâmico • Modular • PWA Optimized
 ============================================================================= */
 
-/* 🎨 Tokens visuais */
+/* 🎨 Tokens Visuais Aprimorados com Suporte Completo ao Dark Mode */
 :root {
-  --header-bg:         #f4f6f8;
-  --header-fg:         #2e2e2e;
-  --header-accent:     #0077b6;
-  --header-muted:      #6c757d;
-  --header-button-bg:  #e9ecef;
-  --header-button-hov: #48cae4;
+  /* Cores Gerais */
+  --header-bg:             #f4f6f8;
+  --header-text:           #2e2e2e;
+  --header-muted:          #6c757d;
+  --header-accent:         #0077b6;
+  --header-accent-hover:   #48cae4;
+
+  /* Botões e Interações */
+  --button-bg:             #e9ecef;
+  --button-hover-bg:       #48cae4;
+  --button-hover-text:     #ffffff;
+
+  /* Sombras e Bordas */
+  --shadow-sm:             0 2px 8px rgba(0, 0, 0, 0.08);
+  --border-radius:         6px;
+
+  /* Espaçamento */
+  --space-xs:              0.5rem;
+  --space-sm:              1rem;
+  --space-md:              1.25rem;
+  --space-lg:              2rem;
+
+  /* Animações e Transições */
+  --transition-standard:   all 0.3s ease;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-bg:         #0d0d0d;
-    --header-fg:         #ffffff;
-    --header-accent:     #00c853;
-    --header-muted:      #aaaaaa;
-    --header-button-bg:  #1a1a1a;
-    --header-button-hov: #00e676;
+    --header-bg:           #0d0d0d;
+    --header-text:         #ffffff;
+    --header-muted:        #aaaaaa;
+    --header-accent:       #00c853;
+    --header-accent-hover: #00e676;
+
+    --button-bg:           #1a1a1a;
+    --button-hover-bg:     #00e676;
+    --button-hover-text:   #0d0d0d;
   }
 }
 
-/* 🧱 Container principal */
+/* 🧱 Container principal estilizado */
 .cabecalho-site {
   background-color: var(--header-bg);
-  color: var(--header-fg);
+  color: var(--header-text);
   font-family: 'Inter', sans-serif;
-  padding: 1.25rem var(--space-sm);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: var(--space-md) var(--space-sm);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* 🧬 Flex layout primário */
 .flex-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-sm);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* 🧾 Identidade visual textual */
+/* 👤 Avatar High-Tech com detalhe estético */
+.avatar-header {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 72px;
+  height: 72px;
+  box-shadow:
+    0 0 0 3px var(--header-accent),
+    0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 🧾 Identidade visual textual elegante */
 .identidade-site a {
   text-decoration: none;
   color: inherit;
+  display: inline-block;
+  transition: var(--transition-standard);
 }
 
 .marca {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .submarca {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--header-muted);
 }
 
-/* 📌 Menu principal horizontal */
+/* 📌 Navegação Principal Horizontal High-Tech */
 .navegacao-principal ul.menu {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: var(--space-lg);
 }
 
 .navegacao-principal a {
-  color: var(--header-fg);
+  color: var(--header-text);
   font-weight: 500;
-  text-decoration: none;
   position: relative;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
+  padding: var(--space-xs) 0;
+  text-decoration: none;
+  transition: var(--transition-standard);
 }
 
 .navegacao-principal a:hover,
 .navegacao-principal a:focus {
-  color: var(--header-accent);
+  color: var(--header-accent-hover);
   outline: none;
 }
 
 .navegacao-principal a[aria-current="page"] {
   color: var(--header-accent);
-  font-weight: 600;
-  position: relative;
+  font-weight: 700;
 }
 
 .navegacao-principal a[aria-current="page"]::after {
   content: "";
   position: absolute;
-  bottom: -0.2rem;
+  bottom: -3px;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: var(--header-accent);
-  border-radius: 2px;
+  border-radius: var(--border-radius);
 }
 
-/* 🗂️ Botão de download */
+/* 🗂️ Botão Download PDF Aprimorado */
 .btn-download {
-  background-color: var(--header-button-bg);
-  color: var(--header-fg);
-  padding: 0.5rem 1.25rem;
-  border-radius: 6px;
+  background-color: var(--button-bg);
+  color: var(--header-text);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: none;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: var(--transition-standard);
 }
 
 .btn-download:hover,
 .btn-download:focus {
-  background-color: var(--header-button-hov);
-  color: var(--header-bg);
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
   outline: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
-/* 🌐 Botões de idioma (desktop e mobile) */
+/* 🌐 Botões de Idioma (Desktop e Mobile) */
 .controle-idioma button,
 .controle-idioma-mobile button {
   background: none;
   border: none;
   font-size: 1.25rem;
   cursor: pointer;
-  padding: 0.3rem 0.6rem;
-  color: var(--header-fg);
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  padding: var(--space-xs);
+  color: var(--header-text);
+  border-radius: var(--border-radius);
+  transition: var(--transition-standard);
 }
 
-.idioma:hover,
-.idioma:focus {
-  outline: 2px solid var(--header-accent);
-  outline-offset: 2px;
+.controle-idioma button:hover,
+.controle-idioma button:focus,
+.controle-idioma-mobile button:hover,
+.controle-idioma-mobile button:focus {
+  outline: 2px solid var(--header-accent-hover);
+  background-color: rgba(0, 119, 182, 0.1);
 }
 
 .idioma.ativo {
@@ -153,53 +190,55 @@
 .idioma.ativo::after {
   content: "✓";
   font-size: 0.8rem;
-  margin-left: 0.25rem;
+  margin-left: 0.3rem;
   color: var(--header-accent);
 }
 
-/* 📱 Menu Mobile com <details> */
+/* 📱 Menu Responsivo Mobile */
 .menu-mobile {
   display: none;
-  margin: 1rem 0;
+  margin-top: var(--space-sm);
+  width: 100%;
 }
 
 .menu-mobile summary {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--header-fg);
-  background-color: var(--header-button-bg);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
+  color: var(--header-text);
+  background-color: var(--button-bg);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(0,0,0,0.2);
+  transition: var(--transition-standard);
 }
 
 .menu-mobile summary:hover,
 .menu-mobile summary:focus {
-  background-color: var(--header-button-hov);
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
   outline: none;
 }
 
 .menu-mobile-lista {
   list-style: none;
-  padding: 1rem;
+  padding: var(--space-sm);
   margin: 0;
-  background-color: var(--header-button-bg);
-  border-radius: 6px;
+  background-color: var(--button-bg);
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 
-/* 🌐 Idiomas no mobile */
+/* 🌐 Idiomas Mobile */
 .controle-idioma-mobile {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
+  gap: var(--space-sm);
 }
 
-/* 📱 Responsividade geral */
+/* 📱 Responsividade Avançada e Acessibilidade */
 @media (max-width: 768px) {
   .navegacao-principal {
     display: none;
@@ -219,12 +258,33 @@
 
   .flex-header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center;
+    gap: var(--space-sm);
   }
 
   .btn-download {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* 🖨️ Estilos para Impressão */
+@media print {
+  .cabecalho-site,
+  .menu-mobile,
+  .controle-idioma,
+  .controle-idioma-mobile,
+  .btn-download {
+    display: none !important;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #000;
+    background-color: #fff;
+  }
+
+  .perfil, .secao {
+    page-break-inside: avoid;
   }
 }
